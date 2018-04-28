@@ -16,7 +16,7 @@ class AuthForm extends React.Component {
     return (
       <Form
         model="user"
-        onSubmit={(user) => this.handleSubmit(user)}>
+        onSubmit={(user) => this.handleSubmit(user.id)}>
 
         <label htmlFor="user.firstName">First name:</label>
         <Control.text model="user.firstName" id="user.firstName" />
