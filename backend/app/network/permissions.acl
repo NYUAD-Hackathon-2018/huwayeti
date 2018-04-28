@@ -35,6 +35,27 @@ rule RevokeAccessTransaction {
     action: ALLOW
 }
 
+
+rule CreateClaimTransaction {
+    description: "Allow only member with valid roles to submit claims"
+    participant: "org.acme.pii.Member"
+    operation: CREATE
+    resource: "org.acme.pii.CreateClaim"
+    action: ALLOW
+}
+
+
+rule VerifyClaimTransaction {
+    description: "Allow only member with valid roles to submit claims"
+    participant: "org.acme.pii.Verifier"
+    operation: CREATE
+    resource: "org.acme.pii.VerifyClaim"
+    action: ALLOW
+}
+
+
+
+
 rule OwnRecordFullAccess {
     description: "Allow all participants full access to their own record"
     participant(p): "org.acme.pii.Member"

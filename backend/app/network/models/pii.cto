@@ -36,14 +36,22 @@ concept Role {
   o String validLocation optional
 }
 
-asset Claim identified by claimId{
-  o String claimId
-  --> Verifier verifierId // doctor etc verifying the request
-  --> Member memberId // individual submitting the claim request
+concept ClaimDetail{
+
   o DateTime date
   o String type
-  o String description optional // TB, HIV testing, health record etc
+  o String description // TB, HIV testing, health record etc
   o String location optional
+  o String photoURL optional
+}
+
+
+asset Claim identified by claimId{
+  o String claimId
+  --> Verifier verifier // doctor etc verifying the request
+  --> Member member // individual submitting the claim request
+  o ClaimDetail claimDetail
+  o Boolean verified
 }
 
 participant Member identified by memberId {
@@ -54,7 +62,6 @@ participant Member identified by memberId {
   o String[] authorized optional
   o String gender optional
   o DateTime dob optional
-  o NatId nationalId optional
   o Claim[] claims optional
   o Role[] roles optional
 }
@@ -78,8 +85,17 @@ transaction AuthorizeAccess extends MemberTransaction {
 transaction RevokeAccess extends MemberTransaction {
 }
 
-transaction SubmitClaim {
-  --> Claim claim
+transaction CreateClaim {
+  o String claimId
+  o ClaimDetail claimDetail
   --> Member claimer
   --> Verifier verifier
 }
+
+
+transaction VerifyClaim {
+  --> Claim claim
+  o ClaimDetail newClaimDetail
+}
+
+
