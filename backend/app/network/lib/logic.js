@@ -84,3 +84,21 @@ async function revokeAccess(revoke) {  // eslint-disable-line no-unused-vars
         await memberRegistry.update(me);
     }
 }
+
+/**
+ * A verifier submits a claim
+ * @param {org.acme.pii.SubmitClaim} claimRequest
+ * @transaction
+ */
+async function submitClaim(claimRequest) {  // eslint-disable-line no-unused-vars
+
+    const factory = getFactory();
+    const namespace = 'org.acme.pii';
+
+    const claim = factory.newResource(namespace, 'Claim', claimRequest.claim.claimId);
+    claim = claimRequest.claim;
+
+    // save the claim
+    const assetRegistry = await getAssetRegistry(claim.getFullyQualifiedType());
+    await assetRegistry.add(claim);
+}

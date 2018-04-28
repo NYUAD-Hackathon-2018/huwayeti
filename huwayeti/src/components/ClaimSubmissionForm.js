@@ -1,6 +1,5 @@
 import React from 'react';
 import { Control, LocalForm } from 'react-redux-form';
-// import { InputField } from 'react-semantic-redux-form';
 
 class ClaimSubmissionForm extends React.Component {
   
@@ -20,14 +19,21 @@ class ClaimSubmissionForm extends React.Component {
 
   render() {
     return (
-      <LocalForm onSubmit={(val) => this.handleSubmit(val)}>
-        <Control.text model=".Verifier ID" />
-        <Control.text model=".Claimer ID" />
-        <Control.text model=".Type" /> 
-        <Control.text model=".Description" />
-        <Control.text  model=".Location" />
-        <button>Submit!</button>
+        <div>
+        <div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script> 
+        </div>
+      <LocalForm className="ui form" onSubmit={(val) => this.handleSubmit(val)}>
+        <Control.text placeholder="Verifier ID" model=".Verifier ID" />
+        <Control.text placeholder="Claimer ID" model=".Claimer ID" />
+        <Control.text placeholder="Type" model=".Type" /> 
+        <Control.text placeholder="Description" model=".Description" />
+        <Control.text placeholder="Location" model=".Location" />
+        <center> <button className="ui button" type="submit">Submit!</button> </center>
       </LocalForm>
+      </div>
     );
   }
 }
