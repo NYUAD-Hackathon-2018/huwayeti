@@ -2,16 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Control, LocalForm, actions } from 'react-redux-form';
+import {browserHistory} from 'react-router'
+
+import axios from 'axios';
+
 
 import ClaimViewer from "./ClaimViewer";
-
-
 
 import store from './store.js';
 
 class ClaimViewLogin extends React.Component {
     handleSubmit(user) {
-        ReactDOM.render(<ClaimViewer/>, document.getElementById('root'));
+        var url = "https://google.com"; // PLACEHOLDER
+
+        var word1 = user.word_one
+        var word2 = user.word_two
+        var word3 = user.word_three
+        var word4 = user.word_four
+        var word5 = user.word_five
+        
+        var form = {'word1': word1, 'word2':word2, 'word3':word3,
+        'word4':word4, 'word5': word5}
+    
+        const response = axios.post(url, { form });
+        browserHistory.push('/view')
       }
     render() {
         var alignCenter = {
