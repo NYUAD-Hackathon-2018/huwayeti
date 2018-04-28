@@ -2,7 +2,7 @@
   <img src="images/scarf.png" width="200" height="150">
 </div>
 
-# هويتي --> huwayeti --> identify me
+# هويتي → huwayeti → identify me
 
 Huwayeti adds a blockchain-based claims layer to UNHCR refugee registration to track additional information ascertained by trusted agents (doctors, UN officials, NGO representatives, etc.) about refugees to their UNHCR profile.
 
