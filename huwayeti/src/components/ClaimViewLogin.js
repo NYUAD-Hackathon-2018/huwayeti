@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Control, Form, actions } from 'react-redux-form';
+import ClaimViewer from "./ClaimViewer";
+
 
 
 import store from './store.js';
 
 class AuthForm extends React.Component {
   handleSubmit(user) {
-    alert(user.firstName)
+    ReactDOM.render(<ClaimViewer/>, document.getElementById('root'));
   }
   render() {
     return (
