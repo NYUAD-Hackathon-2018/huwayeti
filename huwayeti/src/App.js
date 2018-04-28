@@ -1,20 +1,40 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { History } from 'history';
+import * as React from 'react';
+// import {React,Component} from 'react';
+import { Provider, Store } from 'react-redux';
+import { Route } from 'react-router';
+import { Link } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+import 'semantic-ui-css/semantic.min.css';
+import { Container, Icon, Menu, Segment } from 'semantic-ui-react';
+import {View} from './components/View';
+import {store} from './index.js';
 
-class App extends Component {
+
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Provider store={store}>
+      <ConnectedRouter>
+        <Container style={{height: '100%'}} fluid={true}>
+          <Menu
+            size="huge"
+            visible="true"
+            inverted
+            fixed="top"
+          >
+            <Link to="/">
+              <Menu.Item name="home"><Icon name="home"/>Home</Menu.Item>
+            </Link>
+          </Menu>
+          <Segment basic>
+            <div style={{marginTop: '50px'}}>
+              <Route exact path="/view" component={View}/>
+            </div>
+          </Segment>
+        </Container>
+      </ConnectedRouter>
+    </Provider>
     );
   }
 }
