@@ -5,7 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "composer-cli": "^0.19.2",
-    "generator-hyperledger-composer": "^0.19.2"
+    "composer-rest-server": "^0.19.2",
+    "generator-hyperledger-composer": "^0.19.2",
+    "yo": "^2.0.2"
   },
   "devDependencies": {},
   "scripts": {
