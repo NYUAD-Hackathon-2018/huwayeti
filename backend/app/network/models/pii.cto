@@ -17,22 +17,37 @@
  */
 namespace org.acme.pii
 
-concept Address {
-  o String street
-  o String house
-  o String city
-  o String county
-  o String country
-  o String zip
+concept NatId {
+  o String nation
+  o String type
+  o String photoURL
+  o String idNumber
 }
 
-participant Member identified by email {
-  o String email
+concept Claim {
+  o String verifierId
+  o String claimerId
+  o DateTime date
+  o String type
+  o String description optional
+  o String location optional
+}
+
+concept Role {
+  o String roleName 
+  o String validLocation optional
+}
+
+participant Member identified by participantID {
+  o String participantID
   o String firstName
   o String lastName
+  o String photoURL 
+  o String gender optional
   o DateTime dob optional
-  o Address address optional
-  o String[] authorized optional
+  o NatId nationalId optional
+  o Claim[] claims optional
+  o Role[] roles optional
 }
 
 abstract transaction MemberTransaction {
