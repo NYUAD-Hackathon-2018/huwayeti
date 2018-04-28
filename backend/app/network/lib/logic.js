@@ -13,31 +13,74 @@
  */
 
 'use strict';
-/**
- * Write your transction processor functions here
- */
+
+/* global getCurrentParticipant getParticipantRegistry getFactory emit */
 
 /**
- * Sample transaction
- * @param {org.example.biznet.SampleTransaction} sampleTransaction
+ * A Member grants access to their record to another Member.
+ * @param {org.acme.pii.AuthorizeAccess} authorize - the authorize to be processed
  * @transaction
  */
-async function sampleTransaction(tx) {
-    // Save the old value of the asset.
-    const oldValue = tx.asset.value;
+async function authorizeAccess(authorize) {  // eslint-disable-line no-unused-vars
 
-    // Update the asset with the new value.
-    tx.asset.value = tx.newValue;
+    const me = getCurrentParticipant();
+    console.log('**** AUTH: ' + me.getIdentifier() + ' granting access to ' + authorize.memberId );
 
-    // Get the asset registry for the asset.
-    const assetRegistry = await getAssetRegistry('org.example.biznet.SampleAsset');
-    // Update the asset in the asset registry.
-    await assetRegistry.update(tx.asset);
+    if(!me) {
+        throw new Error('A participant/certificate mapping does not exist.');
+    }
 
-    // Emit an event for the modified asset.
-    let event = getFactory().newEvent('org.example.biznet', 'SampleEvent');
-    event.asset = tx.asset;
-    event.oldValue = oldValue;
-    event.newValue = tx.newValue;
-    emit(event);
+    // if the member is not already authorized, we authorize them
+    let index = -1;
+
+    if(!me.authorized) {
+        me.authorized = [];
+    }
+    else {
+        index = me.authorized.indexOf(authorize.memberId);
+    }
+
+    if(index < 0) {
+        me.authorized.push(authorize.memberId);
+
+        // emit an event
+        const event = getFactory().newEvent('org.acme.pii', 'MemberEvent');
+        event.memberTransaction = authorize;
+        emit(event);
+
+        // persist the state of the member
+        const memberRegistry = await getParticipantRegistry('org.acme.pii.Member');
+        await memberRegistry.update(me);
+    }
+}
+
+/**
+ * A Member revokes access to their record from another Member.
+ * @param {org.acme.pii.RevokeAccess} revoke - the RevokeAccess to be processed
+ * @transaction
+ */
+async function revokeAccess(revoke) {  // eslint-disable-line no-unused-vars
+
+    const me = getCurrentParticipant();
+    console.log('**** REVOKE: ' + me.getIdentifier() + ' revoking access to ' + revoke.memberId );
+
+    if(!me) {
+        throw new Error('A participant/certificate mapping does not exist.');
+    }
+
+    // if the member is authorized, we remove them
+    const index = me.authorized ? me.authorized.indexOf(revoke.memberId) : -1;
+
+    if(index>-1) {
+        me.authorized.splice(index, 1);
+
+        // emit an event
+        const event = getFactory().newEvent('org.acme.pii', 'MemberEvent');
+        event.memberTransaction = revoke;
+        emit(event);
+
+        // persist the state of the member
+        const memberRegistry = await getParticipantRegistry('org.acme.pii.Member');
+        await memberRegistry.update(me);
+    }
 }
