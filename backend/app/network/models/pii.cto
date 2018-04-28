@@ -17,20 +17,18 @@
  */
 namespace org.acme.pii
 
-concept NatId {
+concept NationalId {
   o String nation
   o String type
   o String photoURL
   o String idNumber
 }
 
-concept Claim {
-  o String verifierId
-  o String claimerId
-  o DateTime date
-  o String type
-  o String description optional
-  o String location optional
+concept Organization {
+  o String orgName
+  o String location
+  o String orgDescription optional
+  o Role[] roles optional
 }
 
 concept Role {
@@ -38,16 +36,36 @@ concept Role {
   o String validLocation optional
 }
 
-participant Member identified by participantID {
-  o String participantID
+asset Claim identified by claimId{
+  o String claimId
+  --> Verifier verifierId // doctor etc verifying the request
+  --> Member memberId // individual submitting the claim request
+  o DateTime date
+  o String type
+  o String description optional // TB, HIV testing, health record etc
+  o String location optional
+}
+
+participant Member identified by memberId {
+  o String memberId
   o String firstName
   o String lastName
-  o String photoURL 
+  o String photoURL
+  o String[] authorized optional
   o String gender optional
   o DateTime dob optional
   o NatId nationalId optional
   o Claim[] claims optional
   o Role[] roles optional
+}
+
+participant Verifier identified by verifierId {
+  o String verifierId
+  o String firstName
+  o String lastName
+  o String organization
+  o Role role optional
+  o DateTime validUntil optional
 }
 
 abstract transaction MemberTransaction {
@@ -60,6 +78,8 @@ transaction AuthorizeAccess extends MemberTransaction {
 transaction RevokeAccess extends MemberTransaction {
 }
 
-event MemberEvent {
-  o MemberTransaction memberTransaction
+transaction SubmitClaim {
+  --> Claim claim
+  --> Member claimer
+  --> Verifier verifier
 }
