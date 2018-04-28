@@ -1,0 +1,24 @@
+{
+  "name": "nyuad-hack",
+  "version": "1.0.0",
+  "description": "A blockchain-based layer on top of UNHCR refugee registration to manage trusted agents' claims regarding refugees",
+  "main": "index.js",
+  "dependencies": {
+    "composer-cli": "^0.19.2",
+    "generator-hyperledger-composer": "^0.19.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NYUAD-Hackathon-2018/hoviati.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NYUAD-Hackathon-2018/hoviati/issues"
+  },
+  "homepage": "https://github.com/NYUAD-Hackathon-2018/hoviati#readme"
+}
