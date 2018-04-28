@@ -85,20 +85,54 @@ async function revokeAccess(revoke) {  // eslint-disable-line no-unused-vars
     }
 }
 
+
+
 /**
- * A verifier submits a claim
- * @param {org.acme.pii.SubmitClaim} claimRequest
+ * A person creates a claim
+ * @param {org.acme.pii.CreateClaim} claimRequest
  * @transaction
  */
-async function submitClaim(claimRequest) {  // eslint-disable-line no-unused-vars
+async function createClaim(claimRequest) {  // eslint-disable-line no-unused-vars
 
     const factory = getFactory();
     const namespace = 'org.acme.pii';
 
-    const claim = factory.newResource(namespace, 'Claim', claimRequest.claim.claimId);
-    claim = claimRequest.claim;
+    const claim = factory.newResource(namespace, 'Claim', claimRequest.claimId);
+    claim.claimId = claimRequest.claimId;
+    claim.claimDetail = claimRequest.claimDetail;
+    claim.verifier = claimRequest.verifier;
+    claim.member = claimRequest.claimer;
+    claim.verified = false;
+
 
     // save the claim
     const assetRegistry = await getAssetRegistry(claim.getFullyQualifiedType());
     await assetRegistry.add(claim);
+
 }
+
+
+/**
+ * A verifier verifies a claim
+ * @param {org.acme.pii.VerifyClaim} verifyRequest
+ * @transaction
+ */
+async function verifyClaim(verifyRequest) {
+
+   const namespace = 'org.acme.pii';
+   // get the claim
+   const claim = verifyRequest.claim;
+
+   //make sure that it is infact the assigned verifier doing this.
+   // if( claim.verifier.verifierId != getCurrentParticipant().getIdentifier())
+   //  return;
+
+    // update the claim
+   claim.claimDetail = verifyRequest.newClaimDetail;
+   claim.verified = true;
+
+   const claimsRegistry = await getAssetRegistry(namespace +".Claim");
+   await claimsRegistry.update(claim);
+
+}
+
