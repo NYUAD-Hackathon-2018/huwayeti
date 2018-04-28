@@ -14,6 +14,10 @@ class ClaimViewLogin extends React.Component {
         ReactDOM.render(<ClaimViewer/>, document.getElementById('root'));
       }
     render() {
+        var alignCenter = {
+            justifyContent: 'center',
+          };
+
         return (
             <Provider store={ store }>
             <div>
@@ -24,23 +28,34 @@ class ClaimViewLogin extends React.Component {
             </div>
             
 
-            <div className="ui raised very padded text container segment">
-                <h2> Add Information </h2>
+            <div className="ui raised very padded text container segment" style={alignCenter} >
+                <div className="ui grid">
+                    <div className="eight wide column"> <h2>Enter your 5 secret words!</h2> </div>
+                    <div className="eight wide right aligned column"> <h3>Dr. Abdul</h3> </div>
+                </div>
+                
 
                 <LocalForm
-                    classname="ui form"
+                    className="ui form"
                     model="user"
                     onSubmit={(user) => this.handleSubmit(user)}>
 
-                    <div className='field ui fluid input'>
-                    <Control.text model="user.word_one" id="user.word_one" placeholder='Word One'/>
-                    <Control.text model="user.word_two" id="user.word_two" placeholder='Word Two'/>
-                    <Control.text model="user.word_three" id="user.word_three" placeholder='Word Three'/>
-                    <Control.text model="user.word_four" id="user.word_four" placeholder='Word Four'/>
-                    <Control.text model="user.word_five" id="user.word_five" placeholder='Word Five'/>
-                    </div>
-                    <div className='field ui fluid input'>
-                    <Control.text model="user.public_key" id="user.public_key" placeholder='Data Authorization Key'/>
+                    <div className= "five fields">
+                            <div className="field">
+                            <Control.text placeholder="Word One" id="user.word_one" model=".word1" />
+                            </div>
+                            <div className="field">
+                            <Control.text placeholder="Word Two" id="user.word_two" model=".word2" />
+                            </div>
+                            <div className="field">
+                            <Control.text placeholder="Word Three" id="user.word_three" model=".word3" />
+                            </div>
+                            <div className="field">
+                            <Control.text placeholder="Word Four" id="user.word_four" model=".word4" />
+                            </div>
+                            <div className="field">
+                            <Control.text placeholder="Word Five" id="user.word_five" model=".word5" />
+                            </div>
                     </div>
                     <button className="ui button" type="submit">
                         Authenticate
