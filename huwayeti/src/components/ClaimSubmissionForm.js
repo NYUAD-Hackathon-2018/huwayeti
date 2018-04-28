@@ -35,7 +35,7 @@ class ClaimSubmissionForm extends React.Component {
         <Control.text placeholder="Claimer ID" model=".Claimer ID" />
         </div>
         <div className='field'>
-        <Control.select className='ui fluid dropdown' placeholder="Type" model=".Type" > 
+        <Control.select className='ui dropdown' placeholder="Type" model=".Type" > 
              <option value="">Information Type</option>
           <option value="med-report">Medical Report</option>
           <option value="gov-doc">Government Document</option>
