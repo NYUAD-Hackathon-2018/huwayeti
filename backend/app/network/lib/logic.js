@@ -18,7 +18,7 @@
 
 /**
  * A Member grants access to their record to another Member.
- * @param {org.acme.pii.AuthorizeAccess} authorize - the authorize to be processed
+ * @param {org.acme.network.AuthorizeAccess} authorize - the authorize to be processed
  * @transaction
  */
 async function authorizeAccess(authorize) {  // eslint-disable-line no-unused-vars
@@ -44,19 +44,19 @@ async function authorizeAccess(authorize) {  // eslint-disable-line no-unused-va
         me.authorized.push(authorize.memberId);
 
         // emit an event
-        const event = getFactory().newEvent('org.acme.pii', 'MemberEvent');
+        const event = getFactory().newEvent('org.acme.network', 'MemberEvent');
         event.memberTransaction = authorize;
         emit(event);
 
         // persist the state of the member
-        const memberRegistry = await getParticipantRegistry('org.acme.pii.Member');
+        const memberRegistry = await getParticipantRegistry('org.acme.network.Member');
         await memberRegistry.update(me);
     }
 }
 
 /**
  * A Member revokes access to their record from another Member.
- * @param {org.acme.pii.RevokeAccess} revoke - the RevokeAccess to be processed
+ * @param {org.acme.network.RevokeAccess} revoke - the RevokeAccess to be processed
  * @transaction
  */
 async function revokeAccess(revoke) {  // eslint-disable-line no-unused-vars
@@ -75,12 +75,12 @@ async function revokeAccess(revoke) {  // eslint-disable-line no-unused-vars
         me.authorized.splice(index, 1);
 
         // emit an event
-        const event = getFactory().newEvent('org.acme.pii', 'MemberEvent');
+        const event = getFactory().newEvent('org.acme.network', 'MemberEvent');
         event.memberTransaction = revoke;
         emit(event);
 
         // persist the state of the member
-        const memberRegistry = await getParticipantRegistry('org.acme.pii.Member');
+        const memberRegistry = await getParticipantRegistry('org.acme.network.Member');
         await memberRegistry.update(me);
     }
 }
@@ -89,13 +89,13 @@ async function revokeAccess(revoke) {  // eslint-disable-line no-unused-vars
 
 /**
  * A person creates a claim
- * @param {org.acme.pii.CreateClaim} claimRequest
+ * @param {org.acme.network.CreateClaim} claimRequest
  * @transaction
  */
 async function createClaim(claimRequest) {  // eslint-disable-line no-unused-vars
 
     const factory = getFactory();
-    const namespace = 'org.acme.pii';
+    const namespace = 'org.acme.network';
 
     const claim = factory.newResource(namespace, 'Claim', claimRequest.claimId);
     claim.claimId = claimRequest.claimId;
@@ -114,12 +114,12 @@ async function createClaim(claimRequest) {  // eslint-disable-line no-unused-var
 
 /**
  * A verifier verifies a claim
- * @param {org.acme.pii.VerifyClaim} verifyRequest
+ * @param {org.acme.network.VerifyClaim} verifyRequest
  * @transaction
  */
 async function verifyClaim(verifyRequest) {
 
-   const namespace = 'org.acme.pii';
+   const namespace = 'org.acme.network';
    // get the claim
    const claim = verifyRequest.claim;
 

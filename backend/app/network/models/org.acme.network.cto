@@ -15,7 +15,7 @@
 /**
  * A business network where members can grant/revoke access to their personal information to other members
  */
-namespace org.acme.pii
+namespace org.acme.network
 
 concept NationalId {
   o String nation
