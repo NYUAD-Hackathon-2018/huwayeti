@@ -28,9 +28,18 @@ class ClaimViewer extends React.Component {
                     <img src="https://i.imgur.com/HWfB5zl.png"/>
                   </div>
                   <div className="content">
-                    <div className="header">Matt Giampietro</div>
+                    <div className="header">Mohammad Yusuf</div>
                     <div className="description">
-                    ID: {mockClaims.id}
+                      <div className="ui divided list">
+                        <div className="item">
+                          <div className="header">ID</div>
+                          {mockClaims.id}
+                        </div>
+                        <div className="item">
+                          <div className="header">Date of Birth</div>
+                          01-Jan-1987
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="extra content">
