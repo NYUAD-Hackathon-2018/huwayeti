@@ -25,7 +25,7 @@ class ClaimViewLogin extends React.Component {
         'word4':word4, 'word5': word5}
 
         const response = axios.post(url, { form });
-        browserHistory.push('/org.acme.network.Member/1z45e23bb')
+        browserHistory.push('/org.acme.network.Member/Iz45e23bb')
       }
     render() {
         var alignCenter = {

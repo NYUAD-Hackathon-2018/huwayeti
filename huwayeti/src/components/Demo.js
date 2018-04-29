@@ -6,10 +6,10 @@ import {browserHistory} from 'react-router';
 
 class Demo extends React.Component {
     handleMedical(val) {
-      browserHistory.push('/authenticate')
+      browserHistory.push('/org.acme.network.Member/1z45e23bb')
     }
     handleBorder(val) {
-      browserHistory.push('/org.acme.network.Member/Iz45e23bb')
+      browserHistory.push('/authenticate')
     }
     render() {
         return (
