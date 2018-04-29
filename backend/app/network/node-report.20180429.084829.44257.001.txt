@@ -1,0 +1,203 @@
+================================================================================
+==== Node Report ===============================================================
+
+Event: exception, location: "OnUncaughtException"
+Filename: node-report.20180429.084829.44257.001.txt
+Dump event time:  2018/04/29 08:48:29
+Module load time: 2018/04/29 08:48:29
+Process ID: 44257
+Command line: node /usr/local/bin/composer archive list -a network.bna
+
+Node.js version: v10.0.0
+(http_parser: 2.8.0, v8: 6.6.346.24-node.5, uv: 1.20.2, zlib: 1.2.11,
+ ares: 1.14.0, modules: 64, nghttp2: 1.29.0, napi: 3, openssl: 1.1.0h, icu: 61.1,
+ unicode: 10.0, cldr: 33.0, tz: 2018c)
+
+node-report version: 2.2.1 (built against Node.js v10.0.0, 64 bit)
+
+OS version: Darwin 17.2.0 Darwin Kernel Version 17.2.0: Fri Sep 29 18:27:05 PDT 2017; root:xnu-4570.20.62~3/RELEASE_X86_64
+
+Machine: jihyun-alt.local x86_64
+
+================================================================================
+==== JavaScript Stack Trace ====================================================
+
+Object.parseArgs [as _parseArgs] (/usr/local/lib/node_modules/composer-cli/node_modules/yargs/yargs.js:1:1)
+Object.get [as argv] (/usr/local/lib/node_modules/composer-cli/node_modules/yargs/yargs.js:1:1)
+Object.<anonymous> (/usr/local/lib/node_modules/composer-cli/cli.js:1:1)
+Module._compile (internal/modules/cjs/loader.js:1:1)
+Object.Module._extensions..js (internal/modules/cjs/loader.js:1:1)
+Module.load (internal/modules/cjs/loader.js:1:1)
+tryModuleLoad (internal/modules/cjs/loader.js:1:1)
+Function.Module._load (internal/modules/cjs/loader.js:1:1)
+Function.Module.runMain (internal/modules/cjs/loader.js:1:1)
+startup (internal/bootstrap/node.js:1:1)
+bootstrapNodeJSCore (internal/bootstrap/node.js:1:1)
+
+================================================================================
+==== Native Stack Trace ========================================================
+
+ 0: [pc=0x1026e52bb] nodereport::OnUncaughtException(v8::Isolate*) [/usr/local/lib/node_modules/composer-cli/node_modules/node-report/api.node]
+ 1: [pc=0x1005fd5d6] v8::internal::Isolate::Throw(v8::internal::Object*, v8::internal::MessageLocation*) [/usr/local/bin/node]
+ 2: [pc=0x1007a36bb] v8::internal::Runtime_Throw(int, v8::internal::Object**, v8::internal::Isolate*) [/usr/local/bin/node]
+ 3: [pc=0x1a3dd968427d] 
+ 4: [pc=0x1a3dd976ed9a] 
+ 5: [pc=0x1a3dd96944f7] 
+
+================================================================================
+==== JavaScript Heap and Garbage Collector =====================================
+
+Heap space name: new_space
+    Memory size: 33,554,432 bytes, committed memory: 15,902,144 bytes
+    Capacity: 16,498,688 bytes, used: 1,138,056 bytes, available: 15,360,632 bytes
+Heap space name: old_space
+    Memory size: 17,076,224 bytes, committed memory: 16,567,688 bytes
+    Capacity: 16,481,120 bytes, used: 14,919,296 bytes, available: 1,561,824 bytes
+Heap space name: code_space
+    Memory size: 1,572,864 bytes, committed memory: 1,082,368 bytes
+    Capacity: 1,501,344 bytes, used: 771,936 bytes, available: 729,408 bytes
+Heap space name: map_space
+    Memory size: 1,593,344 bytes, committed memory: 1,208,096 bytes
+    Capacity: 1,558,032 bytes, used: 863,120 bytes, available: 694,912 bytes
+Heap space name: large_object_space
+    Memory size: 4,407,296 bytes, committed memory: 4,407,296 bytes
+    Capacity: 1,445,861,880 bytes, used: 3,038,200 bytes, available: 1,442,823,680 bytes
+
+Total heap memory size: 58,204,160 bytes
+Total heap committed memory: 39,167,592 bytes
+Total used heap memory: 20,730,608 bytes
+Total available heap memory: 1,461,170,456 bytes
+
+Heap memory limit: 1,501,560,832
+
+================================================================================
+==== Resource Usage ============================================================
+
+Process total resource usage:
+  User mode CPU: 0.681433 secs
+  Kernel mode CPU: 0.128810 secs
+  Average CPU Consumption : 81.0243%
+  Maximum resident set size: 68,207,771,648 bytes
+  Page faults: 26 (I/O required) 16670 (no I/O required)
+  Filesystem activity: 0 reads 0 writes
+
+================================================================================
+==== Node.js libuv Handle Summary ==============================================
+
+(Flags: R=Ref, A=Active)
+Flags  Type      Address             Details
+[-A]   async     0x0000000102522a30  
+[-A]   check     0x00007ffeefbfe660  
+[R-]   idle      0x00007ffeefbfe6d8  
+[--]   prepare   0x00007ffeefbfe750  
+[--]   check     0x00007ffeefbfe7c8  
+[-A]   async     0x000000010163a068  
+[R-]   timer     0x00000001024063d0  repeat: 0, timeout expired: 36048769 ms ago
+[R-]   tty       0x0000000104800818  width: 80, height: 25, file descriptor: 10, write queue size: 0, writable
+[-A]   signal    0x000000010252a780  signum: 28 (SIGWINCH)
+[R-]   tty       0x000000010252a8b8  width: 80, height: 25, file descriptor: 12, write queue size: 0, writable
+[-A]   async     0x00000001026ecf78  
+
+================================================================================
+==== System Information ========================================================
+
+Environment variables
+  rvm_bin_path=/Users/jihyunkim/.rvm/bin
+  TERM_PROGRAM=iTerm.app
+  GEM_HOME=/Users/jihyunkim/.rvm/gems/ruby-2.2.6
+  ANDROID_HOME=/Users/jihyunkim/Library/Android/sdk
+  TERM=xterm-256color
+  SHELL=/bin/bash
+  IRBRC=/Users/jihyunkim/.rvm/rubies/ruby-2.2.6/.irbrc
+  TMPDIR=/var/folders/_v/9bbml0sd65dc0mk4ys5y9smw0000gn/T/
+  Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.zYQfReh9yO/Render
+  TERM_PROGRAM_VERSION=3.1.3
+  OLDPWD=/Users/jihyunkim/Desktop/huwayeti/backend/app/network/dist
+  MY_RUBY_HOME=/Users/jihyunkim/.rvm/rubies/ruby-2.2.6
+  TERM_SESSION_ID=w1t0p0:751C33D5-0413-4A08-80C1-57CC01E46A91
+  USER=jihyunkim
+  _system_type=Darwin
+  rvm_path=/Users/jihyunkim/.rvm
+  SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.hQk57vUhe7/Listeners
+  __CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
+  rvm_prefix=/Users/jihyunkim
+  PATH=/Users/jihyunkim/.rvm/gems/ruby-2.2.6/bin:/Users/jihyunkim/.rvm/gems/ruby-2.2.6@global/bin:/Users/jihyunkim/.rvm/rubies/ruby-2.2.6/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin://anaconda/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/local/git/bin:/Users/jihyunkim/Library/Android/sdk/tools:/Users/jihyunkim/Library/Android/sdk/platform-tools:/Users/jihyunkim/.rvm/bin:/jihyunkim/aware/ant/bin
+  PWD=/Users/jihyunkim/Desktop/huwayeti/backend/app/network
+  LANG=en_US.UTF-8
+  ITERM_PROFILE=Default
+  _system_arch=x86_64
+  XPC_FLAGS=0x0
+  _system_version=10.13
+  XPC_SERVICE_NAME=0
+  rvm_version=1.29.2 (latest)
+  SHLVL=1
+  HOME=/Users/jihyunkim
+  COLORFGBG=7;0
+  ITERM_SESSION_ID=w1t0p0:751C33D5-0413-4A08-80C1-57CC01E46A91
+  LOGNAME=jihyunkim
+  GEM_PATH=/Users/jihyunkim/.rvm/gems/ruby-2.2.6:/Users/jihyunkim/.rvm/gems/ruby-2.2.6@global
+  RUBY_VERSION=ruby-2.2.6
+  _system_name=OSX
+  COLORTERM=truecolor
+  _=/usr/local/bin/composer
+
+Resource limits                        soft limit      hard limit
+  core file size (blocks)                       0       unlimited
+  data seg size (kbytes)                unlimited       unlimited
+  file size (blocks)                    unlimited       unlimited
+  max locked memory (bytes)             unlimited       unlimited
+  max memory size (kbytes)              unlimited       unlimited
+  open files                                10240       unlimited
+  stack size (bytes)                      8388608        67104768
+  cpu time (seconds)                    unlimited       unlimited
+  max user processes                          709            1064
+  virtual memory (kbytes)               unlimited       unlimited
+
+Loaded libraries
+  /usr/local/bin/node
+  /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+  /usr/lib/libSystem.B.dylib
+  /usr/lib/libc++.1.dylib
+  /usr/lib/libDiagnosticMessagesClient.dylib
+  /usr/lib/libicucore.A.dylib
+  /usr/lib/libobjc.A.dylib
+  /usr/lib/libz.1.dylib
+  /usr/lib/system/libcache.dylib
+  /usr/lib/system/libcommonCrypto.dylib
+  /usr/lib/system/libcompiler_rt.dylib
+  /usr/lib/system/libcopyfile.dylib
+  /usr/lib/system/libcorecrypto.dylib
+  /usr/lib/system/libdispatch.dylib
+  /usr/lib/system/libdyld.dylib
+  /usr/lib/system/libkeymgr.dylib
+  /usr/lib/system/liblaunch.dylib
+  /usr/lib/system/libmacho.dylib
+  /usr/lib/system/libquarantine.dylib
+  /usr/lib/system/libremovefile.dylib
+  /usr/lib/system/libsystem_asl.dylib
+  /usr/lib/system/libsystem_blocks.dylib
+  /usr/lib/system/libsystem_c.dylib
+  /usr/lib/system/libsystem_configuration.dylib
+  /usr/lib/system/libsystem_coreservices.dylib
+  /usr/lib/system/libsystem_darwin.dylib
+  /usr/lib/system/libsystem_dnssd.dylib
+  /usr/lib/system/libsystem_info.dylib
+  /usr/lib/system/libsystem_m.dylib
+  /usr/lib/system/libsystem_malloc.dylib
+  /usr/lib/system/libsystem_network.dylib
+  /usr/lib/system/libsystem_networkextension.dylib
+  /usr/lib/system/libsystem_notify.dylib
+  /usr/lib/system/libsystem_sandbox.dylib
+  /usr/lib/system/libsystem_secinit.dylib
+  /usr/lib/system/libsystem_kernel.dylib
+  /usr/lib/system/libsystem_platform.dylib
+  /usr/lib/system/libsystem_pthread.dylib
+  /usr/lib/system/libsystem_symptoms.dylib
+  /usr/lib/system/libsystem_trace.dylib
+  /usr/lib/system/libunwind.dylib
+  /usr/lib/system/libxpc.dylib
+  /usr/lib/closure/libclosured.dylib
+  /usr/lib/libc++abi.dylib
+  /usr/local/lib/node_modules/composer-cli/node_modules/node-report/api.node
+
+================================================================================
