@@ -21,6 +21,22 @@ const history = syncHistoryWithStore(browserHistory, store);
 export default class App extends Component {
     render() {
         return (
+            <div>
+        <div className="ui very padded inverted segment">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+            <div className="ui equal width centered grid">
+              <div className="ui left floated column">
+                  <div className="ui huge left aligned white inverted header">
+                  Hawiyati
+                  </div>
+              </div>
+              <div className="ui right floated column">
+                <div className="ui huge right aligned green inverted header">
+                 هويتي
+                </div>
+              </div>
+            </div>
+            </div>
             <Provider store={store}>
                 <Router history={history}>
                     <Route exact path="/" component={ClaimViewLogin}/>
@@ -29,6 +45,11 @@ export default class App extends Component {
                     <Route exact path="VerifyClaim" component={ClaimSubmissionForm}/>
                 </Router>
             </Provider>
+            <br/>
+            <div className="ui footer">
+            <center><img className="ui small image" src="https://i.imgur.com/EjJEWc3.png"></img></center>
+          </div>
+            </div>
         );
     }
 }

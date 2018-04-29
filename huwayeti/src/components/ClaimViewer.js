@@ -11,17 +11,6 @@ class ClaimViewer extends React.Component {
     render() {
         return (
           <div>
-          <div className="ui very padded inverted segment">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
-            <div className="ui equal width centered grid">
-              <div className="ui left floated column">
-                  <div className="ui huge left aligned white inverted header">
-                  Hawiyati
-                  </div>
-              </div>
-                <img className="ui small right aligned image" src="https://i.imgur.com/qeLSv8n.png"></img>
-            </div>
-            </div>
             <div className="ui padded stackable grid">
               <div className="four wide column">
                 <div className="ui card">
@@ -95,9 +84,6 @@ class ClaimViewer extends React.Component {
               </tbody>
               </table>
             </div>
-          </div>
-          <div className="ui footer">
-            <center><img className="ui small image" src="https://i.imgur.com/EjJEWc3.png"></img></center>
           </div>
         </div>
     )};
