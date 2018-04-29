@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/scarf.png" width="200" height="150">
+  <img src="huwayeti/images/scarf.png" width="200" height="150">
 </div>
 
 # هويتي → huwayeti → identify me
