@@ -6,6 +6,7 @@ import axios from 'axios';
 import {browserHistory} from 'react-router'
 import ReactDOM from 'react-dom';
 import ClaimViewer2 from "./ClaimViewer2";
+import LoaderButton from "./LoaderButton";
 
 
 class ClaimSubmissionForm extends React.Component {
@@ -31,8 +32,13 @@ class ClaimSubmissionForm extends React.Component {
     const response = axios.post(url, { form });
     console.log(response);
 
-    //ReactDOM.render(<ClaimViewer2/>, document.getElementById('root'));
-    browserHistory.push('/org.acme.network.Member/lz45e23bb');
+    ReactDOM.render(<LoaderButton />, document.getElementById('button_verify'));
+    // document.getElementById('button_verify').addEventListener("onclick", function(){
+    //           browserHistory.push('/org.acme.network.Member/lz45e23bb');
+
+    // });
+
+
   }
 
   render() {
@@ -64,7 +70,7 @@ class ClaimSubmissionForm extends React.Component {
         <Control.textarea placeholder="Description" model=".Description" />
         </div>
         <Control.file placeholder="File" model=".File" />
-        <center> <button className="ui button" type="submit">Verify Claim</button> </center>
+        <center> <div id="button_verify"><button className="ui button"  type="submit">Submit</button> </div></center>
       </LocalForm>
       </div>
       </div>
