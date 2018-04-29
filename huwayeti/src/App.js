@@ -10,6 +10,7 @@ import ClaimViewLogin from './components/ClaimViewLogin';
 import ClaimViewer from "./components/ClaimViewer";
 import ClaimViewer2 from "./components/ClaimViewer2";
 import ClaimViewer3 from "./components/ClaimViewer3";
+import Demo from "./components/Demo";
 
 const store = createStore(
     combineReducers({
@@ -40,7 +41,8 @@ export default class App extends Component {
             </div>
             <Provider store={store}>
                 <Router history={history}>
-                    <Route exact path="/" component={ClaimViewLogin}/>
+                    <Route exact path="/" component={Demo}/>
+                    <Route exact path="/authenticate" component={ClaimViewLogin}/>
                     <Route exact path="/org.acme.network.Member/1z45e23bb" component={ClaimViewer}/>
                     <Route exact path="/org.acme.network.Member/lz45e23bb" component={ClaimViewer2}/>
                     <Route exact path="/org.acme.network.Member/Iz45e23bb" component={ClaimViewer3}/>
