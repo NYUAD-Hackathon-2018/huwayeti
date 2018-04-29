@@ -45,9 +45,6 @@ class ClaimSubmissionForm extends React.Component {
         <h2> Add Information </h2>
       <LocalForm className="ui form" onSubmit={(val) => this.handleSubmit(val)}>
         <div className='field'>
-        <Control.text placeholder="Verifier ID" model=".Verifier ID" />
-        </div>
-        <div className='field'>
         <Control.select className='ui dropdown' style={{height:38}} placeholder="Type" model=".Type" > 
              <option value="">Information Type</option>
           <option value="med-report">Medical Report</option>
