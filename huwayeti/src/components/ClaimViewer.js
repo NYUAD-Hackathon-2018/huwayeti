@@ -81,7 +81,7 @@ class ClaimViewer extends React.Component {
                   <td className="positive">Clear</td>
                   <td>3 January 2017</td>
                   <td>Amman, Jordan</td>
-                  <td><a>Abdul</a></td>
+                  <td><a>Dr. Ali Nasser</a></td>
                   <td>WHO</td>
                 </tr>
                 <tr>
@@ -89,12 +89,15 @@ class ClaimViewer extends React.Component {
                   <td className="positive">Clear</td>
                   <td>3 January 2017</td>
                   <td>Amman, Jordan</td>
-                  <td><a>Abdul</a></td>
+                  <td><a>Dr. Ali Nasser</a></td>
                   <td>WHO</td>
                 </tr>
               </tbody>
               </table>
             </div>
+          </div>
+          <div className="ui footer">
+            <center><img className="ui small image" src="https://i.imgur.com/EjJEWc3.png"></img></center>
           </div>
         </div>
     )};
