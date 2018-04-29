@@ -1,8 +1,13 @@
 import React from 'react';
 import { Container, Divider } from 'semantic-ui-react';
 import {mockClaims} from '../mock-data/claims.js';
+import { LocalForm } from 'react-redux-form';
+import {browserHistory} from 'react-router';
 
 class ClaimViewer extends React.Component {
+    handleSubmit(val) {
+      browserHistory.push('/submit')
+    }
     render() {
         return (
           <div>
@@ -14,11 +19,7 @@ class ClaimViewer extends React.Component {
                   Hawiyati
                   </div>
               </div>
-              <div className="ui right floated column">
-                <div className="ui huge right aligned green inverted header">
-                 هويتي
-                </div>
-              </div>
+                <img className="ui small right aligned image" src="https://i.imgur.com/qeLSv8n.png"></img>
             </div>
             </div>
             <div className="ui padded stackable grid">
@@ -39,6 +40,16 @@ class ClaimViewer extends React.Component {
                           <div className="header">Date of Birth</div>
                           01-Jan-1987
                         </div>
+                        <div className="item">
+                          <center><LocalForm
+                            className="ui form"
+                            onSubmit={(val)=>this.handleSubmit(val)}>
+                          <button className="fluid ui button">
+                          Submit New Claim
+                          </button>
+                          </LocalForm>
+                          </center>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -54,33 +65,35 @@ class ClaimViewer extends React.Component {
                 </div>
               </div>
             <div className="twelve wide column">
+            <h3><i className="heartbeat icon"></i>Health Records</h3>
             <table className="ui celled table">
               <thead>
-                <tr>
                   <th>Claim</th>
                   <th>Status</th>
                   <th>Date</th>
+                  <th>Location</th>
                   <th>Verified by</th>
-                </tr>
+                  <th>Organization</th>
               </thead>
               <tbody>
                 <tr>
                   <td>HIV</td>
                   <td className="positive">Clear</td>
                   <td>3 January 2017</td>
+                  <td>Amman, Jordan</td>
                   <td><a>Abdul</a></td>
+                  <td>WHO</td>
                 </tr>
                 <tr>
                   <td>Tuberculosis</td>
                   <td className="positive">Clear</td>
                   <td>3 January 2017</td>
+                  <td>Amman, Jordan</td>
                   <td><a>Abdul</a></td>
+                  <td>WHO</td>
                 </tr>
               </tbody>
               </table>
-              <button className="ui right floated button">
-                Submit New Claim
-              </button>
             </div>
           </div>
         </div>
