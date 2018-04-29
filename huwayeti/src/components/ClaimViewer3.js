@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Divider } from 'semantic-ui-react';
 import {mockClaims} from '../mock-data/claims.js';
 import {LocalForm} from 'react-redux-form';
+import {browserHistory} from 'react-router';
 
 class ClaimViewer3 extends React.Component {
     render() {
@@ -24,16 +25,6 @@ class ClaimViewer3 extends React.Component {
                       <div className="item">
                         <div className="header">Date of Birth</div>
                         01-Jan-1987
-                      </div>
-                      <div className="item">
-                        <center><LocalForm
-                          className="ui form"
-                          onSubmit={(val)=>this.handleSubmit(val)}>
-                        <button className="fluid ui button">
-                        Submit New Claim
-                        </button>
-                        </LocalForm>
-                        </center>
                       </div>
                     </div>
                   </div>

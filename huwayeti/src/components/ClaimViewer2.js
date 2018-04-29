@@ -2,8 +2,12 @@ import React from 'react';
 import { Container, Divider } from 'semantic-ui-react';
 import {mockClaims} from '../mock-data/claims.js';
 import {LocalForm} from 'react-redux-form';
+import {browserHistory} from 'react-router';
 
 class ClaimViewer2 extends React.Component {
+    handleSubmit(val) {
+      browserHistory.push('/VerifyClaim')
+    }
     render() {
       return (
         <div>
