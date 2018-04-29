@@ -49,10 +49,6 @@ export default class App extends Component {
                     <Route exact path="VerifyClaim" component={ClaimSubmissionForm}/>
                 </Router>
             </Provider>
-            <br/>
-            <div className="ui footer">
-            <center><img className="ui small image" src="https://i.imgur.com/EjJEWc3.png"></img></center>
-          </div>
             </div>
         );
     }
