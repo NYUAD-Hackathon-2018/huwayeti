@@ -8,6 +8,7 @@ import {browserHistory, Route, Router} from 'react-router';
 import ClaimSubmissionForm from './components/ClaimSubmissionForm';
 import ClaimViewLogin from './components/ClaimViewLogin';
 import ClaimViewer from "./components/ClaimViewer";
+import ClaimViewer2 from "./components/ClaimViewer2";
 
 const store = createStore(
     combineReducers({
@@ -24,6 +25,7 @@ export default class App extends Component {
                 <Router history={history}>
                     <Route exact path="/" component={ClaimViewLogin}/>
                     <Route exact path="view" component={ClaimViewer}/>
+                    <Route exact path="view2" component={ClaimViewer2}/>
                     <Route exact path="submit" component={ClaimSubmissionForm}/>
                 </Router>
             </Provider>
