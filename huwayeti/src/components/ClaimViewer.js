@@ -69,14 +69,22 @@ class ClaimViewer extends React.Component {
                   <td>HIV</td>
                   <td className="positive">Clear</td>
                   <td>3 January 2017</td>
-                  <td>Amman, Jordan</td>
-                  <td><a>Dr. Ali Nasser</a></td>
+                  <td>Zaatari Village, Jordan</td>
+                  <td><a>Dr. Azhar Khan</a></td>
                   <td>WHO</td>
                 </tr>
                 <tr>
                   <td>Tuberculosis</td>
                   <td className="positive">Clear</td>
-                  <td>3 January 2017</td>
+                  <td>4 February 2018</td>
+                  <td>Amman, Jordan</td>
+                  <td><a>Dr. Ali Nasser</a></td>
+                  <td>WHO</td>
+                </tr>
+                <tr>
+                  <td>Lead Poisoning</td>
+                  <td className="positive">Clear</td>
+                  <td>4 February 2018</td>
                   <td>Amman, Jordan</td>
                   <td><a>Dr. Ali Nasser</a></td>
                   <td>WHO</td>

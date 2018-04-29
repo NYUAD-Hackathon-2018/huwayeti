@@ -3,7 +3,7 @@ import { Container, Divider } from 'semantic-ui-react';
 import {mockClaims} from '../mock-data/claims.js';
 import {LocalForm} from 'react-redux-form';
 
-class ClaimViewer2 extends React.Component {
+class ClaimViewer3 extends React.Component {
     render() {
       return (
         <div>
@@ -50,6 +50,71 @@ class ClaimViewer2 extends React.Component {
               </div>
             </div>
           <div className="twelve wide column">
+          <h3><i className="file icon"></i>Government Issued Documents</h3>
+          <table className="ui celled table">
+            <thead>
+                <th>DocumentType</th>
+                <th>Details</th>
+            </thead>
+            <tbody>
+            <tr>
+                  <td>Birth Certificate</td>
+                  <td>
+                    <b>Date of Birth:</b>  01 January 1987<br/>
+                    <b>Place of Birth:</b> Al-Hamah<br/>
+                    <b>Father's Name:</b>  ILIYAS Mohammad
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marriage Certificate</td>
+                  <td>
+                    <b>Date of Marriage:</b>  20 January 2009<br/>
+                    <b>Place of Issue:</b> Al-Hamah<br/>
+                    <b>Spouse's Name:</b>  Laila Yusuf
+                  </td>
+                </tr>
+            </tbody>
+            </table>
+            <h3><i className="graduation cap icon"></i>Education</h3>
+          <table className="ui celled table">
+            <thead>
+                <th>Claim</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Verified by</th>
+                <th>Organization</th>
+            </thead>
+            <tbody>
+            <tr>
+                  <td>High School Diploma</td>
+                  <td className="positive">Obtained</td>
+                  <td>14 June 2004</td>
+                  <td>Al-Hamah</td>
+                  <td><a>Mr. Hamza Abid</a></td>
+                  <td>Omar Bin Abdul Aziz School</td>
+                </tr>
+            </tbody>
+            </table>
+
+          <h3><i className="wrench icon"></i>Skill Certifications</h3>
+          <table className="ui celled table">
+            <thead>
+                <th>DocumentType</th>
+                <th>Details</th>
+            </thead>
+            <tbody>
+            <tr>
+                  <td>Heavy Truck License</td>
+                  <td>
+                    <b>Date of Issue:</b>  22 December 2004<br/>
+                    <b>Weight Category:</b> 2.5 tons<br/>
+                    <b>Issued By:</b> Syria - Ministry of Transport and Roadworks
+                  </td>
+                </tr>
+            </tbody>
+            </table>
+
           <h3><i className="heartbeat icon"></i>Health Records</h3>
           <table className="ui celled table">
             <thead>
@@ -95,10 +160,11 @@ class ClaimViewer2 extends React.Component {
               </tr>
             </tbody>
             </table>
+            <br/>
           </div>
         </div>
       </div>
   )};
 }
 
-export default ClaimViewer2
+export default ClaimViewer3
