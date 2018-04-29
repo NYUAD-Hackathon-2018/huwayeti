@@ -14,22 +14,14 @@ class Demo extends React.Component {
     render() {
         return (
           <center>
-            <div className="">
-            <LocalForm
-              className="ui form"
-              onSubmit={(val)=>this.handleMedical(val)}>
+              <a href="/org.acme.network.Member/1z45e23bb">
               <button className="ui button">
-                Verify Medical Record Demo
-              </button>
-            </LocalForm>
-            <LocalForm
-              className="ui form"
-              onSubmit={(val)=>this.handleBorder(val)}>
+                Verify Medical Record
+              </button></a>
+            <a href="/authenticate">
               <button className="ui button">
-                Check Personal Records Demo
-              </button>
-            </LocalForm>
-            </div>
+                Check Personal Records
+              </button></a>
           </center>
     )};
 }
