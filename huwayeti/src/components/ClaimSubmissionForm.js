@@ -42,23 +42,6 @@ class ClaimSubmissionForm extends React.Component {
         <div className='field'>
         <Control.text placeholder="Verifier ID" model=".Verifier ID" />
         </div>
-        <div className="five fields">
-          <div className="field">
-            <Control.text placeholder="Word One" model=".word1" />
-          </div>
-          <div className="field">
-            <Control.text placeholder="Word Two" model=".word2" />
-          </div>
-          <div className="field">
-            <Control.text placeholder="Word Three" model=".word3" />
-          </div>
-          <div className="field">
-            <Control.text placeholder="Word Four" model=".word4" />
-          </div>
-          <div className="field">
-            <Control.text placeholder="Word Five" model=".word5" />
-          </div>
-    </div>
         <div className='field'>
         <Control.select className='ui dropdown' style={{height:38}} placeholder="Type" model=".Type" > 
              <option value="">Information Type</option>

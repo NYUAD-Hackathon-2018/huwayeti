@@ -45,7 +45,7 @@ class ClaimViewLogin extends React.Component {
             <div className="ui raised very padded text container segment" style={alignCenter} >
                 <div className="ui grid">
                     <div className="eight wide column"> <h2>Enter your 5 secret words!</h2> </div>
-                    <div className="eight wide right aligned column"> <h3>Dr. Abdul</h3> </div>
+                    <div className="eight wide right aligned column"> <h3>Officer Ahmed</h3> </div>
                 </div>
 
 
