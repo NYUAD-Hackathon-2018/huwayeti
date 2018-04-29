@@ -141,14 +141,6 @@ class ClaimViewer3 extends React.Component {
                   <td><a>Dr. Ali Nasser</a></td>
                   <td>WHO</td>
                 </tr>
-              <tr>
-                <td>Bivalent Oral Polio</td>
-                <td className="positive">Received</td>
-                <td>29 April 2018</td>
-                <td>Abu Dhabi, UAE</td>
-                <td><a>Dr. Oorja M.</a></td>
-                <td>NMC Hospital</td>
-              </tr>
             </tbody>
             </table>
             <br/>
