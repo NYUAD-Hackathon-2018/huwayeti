@@ -23,7 +23,7 @@ rule AuthorizeAccessTransaction {
     description: "Allow all participants to submit AuthorizeAccess transactions"
     participant: "ANY"
     operation: CREATE
-    resource: "org.acme.pii.AuthorizeAccess"
+    resource: "org.acme.network.AuthorizeAccess"
     action: ALLOW
 }
 
@@ -31,25 +31,25 @@ rule RevokeAccessTransaction {
     description: "Allow all participants to submit RevokeAccess transactions"
     participant: "ANY"
     operation: CREATE
-    resource: "org.acme.pii.RevokeAccess"
+    resource: "org.acme.network.RevokeAccess"
     action: ALLOW
 }
 
 
 rule CreateClaimTransaction {
     description: "Allow only member with valid roles to submit claims"
-    participant: "org.acme.pii.Member"
+    participant: "org.acme.network.Member"
     operation: CREATE
-    resource: "org.acme.pii.CreateClaim"
+    resource: "org.acme.network.CreateClaim"
     action: ALLOW
 }
 
 
 rule VerifyClaimTransaction {
     description: "Allow only member with valid roles to submit claims"
-    participant: "org.acme.pii.Verifier"
+    participant: "org.acme.network.Verifier"
     operation: CREATE
-    resource: "org.acme.pii.VerifyClaim"
+    resource: "org.acme.network.VerifyClaim"
     action: ALLOW
 }
 
@@ -58,18 +58,18 @@ rule VerifyClaimTransaction {
 
 rule OwnRecordFullAccess {
     description: "Allow all participants full access to their own record"
-    participant(p): "org.acme.pii.Member"
+    participant(p): "org.acme.network.Member"
     operation: ALL
-    resource(r): "org.acme.pii.Member"
+    resource(r): "org.acme.network.Member"
     condition: (r.getIdentifier() === p.getIdentifier())
     action: ALLOW
 }
 
 rule ForeignRecordConditionalAccess {
     description: "Allow participants access to other people's records if granted"
-    participant(p): "org.acme.pii.Member"
+    participant(p): "org.acme.network.Member"
     operation: ALL
-    resource(r): "org.acme.pii.Member"
+    resource(r): "org.acme.network.Member"
     condition: (r.authorized && r.authorized.indexOf(p.getIdentifier()) > -1)
     action: ALLOW
 }
