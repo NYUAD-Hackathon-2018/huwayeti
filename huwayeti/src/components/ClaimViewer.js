@@ -6,7 +6,7 @@ import {browserHistory} from 'react-router';
 
 class ClaimViewer extends React.Component {
     handleSubmit(val) {
-      browserHistory.push('/submit')
+      browserHistory.push('/VerifyClaim')
     }
     render() {
         return (

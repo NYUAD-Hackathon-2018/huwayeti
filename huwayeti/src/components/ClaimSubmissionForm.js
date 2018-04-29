@@ -7,6 +7,7 @@ import {browserHistory} from 'react-router'
 import ReactDOM from 'react-dom';
 import ClaimViewer2 from "./ClaimViewer2";
 
+
 class ClaimSubmissionForm extends React.Component {
   
   handleSubmit(val) {
@@ -30,7 +31,8 @@ class ClaimSubmissionForm extends React.Component {
     const response = axios.post(url, { form });
     console.log(response);
 
-    ReactDOM.render(<ClaimViewer2/>, document.getElementById('root'));
+    //ReactDOM.render(<ClaimViewer2/>, document.getElementById('root'));
+    browserHistory.push('/org.acme.network.Member/lz45e23bb');
   }
 
   render() {
@@ -45,21 +47,21 @@ class ClaimSubmissionForm extends React.Component {
         <h2> Add Information </h2>
       <LocalForm className="ui form" onSubmit={(val) => this.handleSubmit(val)}>
         <div className='field'>
-        <Control.select className='ui dropdown' style={{height:38}} placeholder="Type" model=".Type" > 
-             <option value="">Information Type</option>
+        <Control.select className='ui dropdown' style={{height:38}} placeholder="Information Type" model=".Type" > 
           <option value="med-report">Medical Report</option>
           <option value="gov-doc">Government Document</option>
+          <option value="edu-doc">Education Diploma</option>
           <option value="skill-certif">Skill Certification</option>
           </Control.select>
           </div>
           <div className='field'>
-        <Control.text placeholder="Location" model=".Location" />
+        <Control.text placeholder="Current City" model=".Location" />
         </div>
         <div className='field'>
         <Control.textarea placeholder="Description" model=".Description" />
         </div>
         <Control.file placeholder="File" model=".File" />
-        <center> <button className="ui button" type="submit">Submit!</button> </center>
+        <center> <button className="ui button" type="submit">Verify Claim</button> </center>
       </LocalForm>
       </div>
       </div>

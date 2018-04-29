@@ -25,7 +25,7 @@ class ClaimViewLogin extends React.Component {
         'word4':word4, 'word5': word5}
 
         const response = axios.post(url, { form });
-        browserHistory.push('/view')
+        browserHistory.push('/org.acme.network.Member/1z45e23bb')
       }
     render() {
         var alignCenter = {
@@ -44,8 +44,8 @@ class ClaimViewLogin extends React.Component {
 
             <div className="ui raised very padded text container segment" style={alignCenter} >
                 <div className="ui grid">
-                    <div className="eight wide column"> <h2>Enter your 5 secret words!</h2> </div>
-                    <div className="eight wide right aligned column"> <h3>Officer Ahmed</h3> </div>
+                    <div className="eight wide column"> <h2>Enter your 5 secret words to verify identity.</h2> </div>
+                    <div className="eight wide right aligned column"> <h3>Doctor Oorja M.</h3> </div>
                 </div>
 
 

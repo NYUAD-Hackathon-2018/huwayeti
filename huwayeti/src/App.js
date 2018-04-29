@@ -24,9 +24,9 @@ export default class App extends Component {
             <Provider store={store}>
                 <Router history={history}>
                     <Route exact path="/" component={ClaimViewLogin}/>
-                    <Route exact path="view" component={ClaimViewer}/>
-                    <Route exact path="view2" component={ClaimViewer2}/>
-                    <Route exact path="submit" component={ClaimSubmissionForm}/>
+                    <Route exact path="/org.acme.network.Member/1z45e23bb" component={ClaimViewer}/>
+                    <Route exact path="/org.acme.network.Member/lz45e23bb" component={ClaimViewer2}/>
+                    <Route exact path="VerifyClaim" component={ClaimSubmissionForm}/>
                 </Router>
             </Provider>
         );
