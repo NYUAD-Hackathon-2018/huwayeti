@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Divider } from 'semantic-ui-react';
 import {mockClaims} from '../mock-data/claims.js';
 
-class ClaimViewer extends React.Component {
+class ClaimViewer2 extends React.Component {
     render() {
         return (
           <div>
@@ -21,7 +21,7 @@ class ClaimViewer extends React.Component {
               </div>
             </div>
             </div>
-            <div className="ui padded stackable grid">
+            <div className="ui padded grid">
               <div className="four wide column">
                 <div className="ui card">
                   <div className="image">
@@ -78,13 +78,10 @@ class ClaimViewer extends React.Component {
                 </tr>
               </tbody>
               </table>
-              <button className="ui right floated button">
-                Submit New Claim
-              </button>
             </div>
           </div>
         </div>
     )};
 }
 
-export default ClaimViewer
+export default ClaimViewer2
