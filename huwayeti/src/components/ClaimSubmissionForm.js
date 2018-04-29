@@ -9,7 +9,7 @@ import ClaimViewer2 from "./ClaimViewer2";
 
 
 class ClaimSubmissionForm extends React.Component {
-  
+
   handleSubmit(val) {
 
     var url = "http://localhost:3000/org.acme.network.VerifyClaim"; // PLACEHOLDER
@@ -41,13 +41,13 @@ class ClaimSubmissionForm extends React.Component {
         <div>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script> 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
         </div>
         <div className="ui raised very padded text container segment">
         <h2> Add Information </h2>
       <LocalForm className="ui form" onSubmit={(val) => this.handleSubmit(val)}>
         <div className='field'>
-        <Control.select className='ui dropdown' style={{height:38}} placeholder="Information Type" model=".Type" > 
+        <Control.select className='ui dropdown' style={{height:38}} placeholder="Information Type" model=".Type" >
           <option value="med-report">Medical Report</option>
           <option value="gov-doc">Government Document</option>
           <option value="edu-doc">Education Diploma</option>
@@ -56,6 +56,9 @@ class ClaimSubmissionForm extends React.Component {
           </div>
           <div className='field'>
         <Control.text placeholder="Current City" model=".Location" />
+        </div>
+        <div className='field'>
+        <Control.text placeholder="Claim" model=".Claim" />
         </div>
         <div className='field'>
         <Control.textarea placeholder="Description" model=".Description" />
